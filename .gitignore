@@ -4,4 +4,4 @@ output/*.keystore
 output/*.toml
 .idea
 process
-.env
+env/.env
