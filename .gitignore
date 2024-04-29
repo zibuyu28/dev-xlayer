@@ -1,0 +1,7 @@
+xlayer-contracts
+output/*.json
+output/*.keystore
+output/*.toml
+.idea
+process
+.env

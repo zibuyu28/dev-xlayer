@@ -1,0 +1,6 @@
+.gitignore
+Dockerfile
+process
+output/*.json
+output/*.keystore
+output/*.toml
