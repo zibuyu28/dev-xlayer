@@ -7,7 +7,7 @@ if [ "$debug" -eq 1 ]; then
   set -x
 elif [ "$debug" -eq 2 ]; then
   set -v
-else
+elif [ "$debug" -eq 3 ]; then
   set -vx
 fi
 
