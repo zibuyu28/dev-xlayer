@@ -96,14 +96,15 @@ echo "DAC2 address: $dac2_address"
 
 
 if [ "$process" -le 3 ]; then
-  rm -rf xlayer-contracts
+  rm -rf "$OUTPUT_DIR"/xlayer-contracts
+  cd "$OUTPUT_DIR"/ || exit 1
   git clone -b release/v0.3.1 https://github.com/okx/xlayer-contracts.git
   cd xlayer-contracts || exit 1
   npm install
-  echo 4 > ../"$OUTPUT_DIR"/process
+  echo 4 > ../process
 else
-  if [ ! -d xlayer-contracts ]; then
-    echo "Please provide xlayer-contracts directory" >&2
+  if [ ! -d "$OUTPUT_DIR"/xlayer-contracts ]; then
+    echo "Please provide $OUTPUT_DIR/xlayer-contracts directory" >&2
     exit 1
   fi
   cd xlayer-contracts || exit 1
@@ -151,7 +152,7 @@ done
 if [ "$process" -le 4 ]; then
   npm run deploy:v2:sepolia
   npm run verify:v2:sepolia
-  echo 5 > ../"$OUTPUT_DIR"/process
+  echo 5 > ../process
 fi
 
 
@@ -163,13 +164,13 @@ genesis=$(cat "$dir/genesis.json")
 deploy_output=$(cat "$dir/deploy_output.json")
 create_rollup_output=$(cat "$dir/create_rollup_output.json")
 
-cd .. || exit 1
+cd ../../ || exit 1
 
-generate_genesis $L1_CHAIN_ID \
+generate_genesis "$L1_CHAIN_ID" \
   "$(echo "$create_rollup_output" | jq -r '.rollupAddress' )" \
   "$(echo "$deploy_output" | jq -r '.polygonZkEVMGlobalExitRootAddress')" \
   "$(echo "$deploy_output" | jq -r '.polygonRollupManagerAddress')" \
-  $POL_TOKEN_ADDRESS \
+  "$POL_TOKEN_ADDRESS" \
   "$(echo "$create_rollup_output" | jq -r '.createRollupBlockNumber')" \
   "$(echo "$deploy_output" | jq -r '.deploymentRollupManagerBlockNumber')" \
   "$(echo "$genesis" | jq -r '.root')" \
