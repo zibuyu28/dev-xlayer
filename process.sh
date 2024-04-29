@@ -2,6 +2,11 @@
 
 set -e
 
+debug=${DEBUG:-0}
+if [ "$debug" -eq 1 ]; then
+  set -vx
+fi
+
 . scripts/require.sh
 . scripts/account.sh
 . scripts/genesis.sh
