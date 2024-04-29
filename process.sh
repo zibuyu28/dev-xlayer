@@ -4,7 +4,11 @@ set -e
 
 debug=${DEBUG:-0}
 if [ "$debug" -eq 1 ]; then
+  set -x
+elif [ "$debug" -eq 2 ]; then
   set -v
+else
+  set -vx
 fi
 
 . scripts/require.sh
