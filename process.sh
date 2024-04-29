@@ -107,7 +107,7 @@ else
     echo "Please provide $OUTPUT_DIR/xlayer-contracts directory" >&2
     exit 1
   fi
-  cd xlayer-contracts || exit 1
+  cd "$OUTPUT_DIR"/xlayer-contracts || exit 1
   git checkout release/v0.3.1
   git pull origin release/v0.3.1
 fi
