@@ -4,3 +4,4 @@ process
 output/*.json
 output/*.keystore
 output/*.toml
+.git
