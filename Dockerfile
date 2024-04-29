@@ -4,4 +4,4 @@ COPY . /app
 
 EXPOSE 8080
 
-CMD ["/bin/bash","-c","source /app/env/.env && source /root/.bashrc && /app/process.sh && http-server /app/output"]
+CMD ["/bin/bash","-c",". /app/env/.env && . /root/.bashrc && /app/process.sh && http-server /app/output"]

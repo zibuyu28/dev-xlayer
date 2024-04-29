@@ -4,7 +4,7 @@ set -e
 
 debug=${DEBUG:-0}
 if [ "$debug" -eq 1 ]; then
-  set -vx
+  set -v
 fi
 
 . scripts/require.sh
