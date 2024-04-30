@@ -4,8 +4,8 @@ COPY . /app
 
 ARG BRANCH=release/v0.3.1
 
-RUN if [ -z "$BRANCH" ]; then echo "BRANCH is not set!"; exit 1 fi && \
-    cd /app/output && \
+RUN if [ "$BRANCH" = "" ]; then echo "BRANCH is not set!"; exit 1; fi && \
+    cd /app && \
     git clone -b "$BRANCH" https://github.com/okx/xlayer-contracts.git && \
     cd xlayer-contracts && \
     npm install && \
