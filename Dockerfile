@@ -1,4 +1,4 @@
-FROM okexchain/xlayer-dev:base_fork9_20240429
+FROM okexchain/xlayer-dev:base
 
 COPY . /app
 
