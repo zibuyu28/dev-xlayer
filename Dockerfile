@@ -2,7 +2,7 @@ FROM okexchain/xlayer-dev:base
 
 COPY . /app
 
-ARG BRANCH=release/v0.3.1
+ARG BRANCH=""
 
 RUN if [ "$BRANCH" = "" ]; then echo "BRANCH is not set!"; exit 1; fi && \
     cd /app && \
