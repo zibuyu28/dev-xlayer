@@ -1,4 +1,12 @@
-FROM okexchain/xlayer-dev:base
+FROM office-registry.cn-hongkong.cr.aliyuncs.com/okbase/alinux3:230602.1-okg3
+
+RUN curl -fsSL https://rpm.nodesource.com/setup_16.x | bash - && \
+    yum install -y nodejs && \
+    npm install -g npm@8.1.2 && \
+    npm install -g solc@0.8.20 && \
+    npm install http-server -g && \
+    curl -L https://foundry.paradigm.xyz | bash && \
+    . /root/.bashrc && foundryup
 
 COPY . /app
 
