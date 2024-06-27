@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Generate Dockerfile
+      run: echo "aaaa" > a.txt
+    - name: ls
+      run: ls
+    - name: build
+      run: docker build .
