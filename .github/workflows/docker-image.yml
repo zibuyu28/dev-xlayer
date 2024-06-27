@@ -25,7 +25,7 @@ jobs:
     - name: check Dockerfile
       run: cat Dockerfile.test
     - name: build
-      run: docker build -t test:latest -f Dockerfile.teset
+      run: docker build -t test:latest -f Dockerfile.teset .
     - name: Push Docker image to Docker Hub
       run: |
         docker push test:latest
