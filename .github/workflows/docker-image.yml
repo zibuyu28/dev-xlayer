@@ -25,7 +25,7 @@ jobs:
     - name: check Dockerfile
       run: cat Dockerfile.test
     - name: build
-      run: docker build -t test:latest -f Dockerfile.test .
+      run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/test:latest -f Dockerfile.test .
     - name: Push Docker image to Docker Hub
       run: |
-        docker push zibuyu28/test:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/test:latest
