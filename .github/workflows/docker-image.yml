@@ -28,4 +28,4 @@ jobs:
       run: docker build -t test:latest -f Dockerfile.test .
     - name: Push Docker image to Docker Hub
       run: |
-        docker push test:latest
+        docker push zibuyu28/test:latest
